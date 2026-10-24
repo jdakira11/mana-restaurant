@@ -56,4 +56,6 @@ export interface ReservationReceipt {
   manageUrl: string;
   /** Indica si hay un proveedor de correo configurado (para no prometer emails que no se enviarán). */
   emailNotifications: boolean;
+  /** Solo en la vista previa estática: la reserva no se ha guardado ni enviado. */
+  demo?: boolean;
 }

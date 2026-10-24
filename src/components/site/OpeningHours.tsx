@@ -14,6 +14,8 @@ export function OpeningHours({ className = "", compact = false }: { className?: 
   const [schedule, setSchedule] = useState<TimeWindow[][]>(defaultReservationSettings.weeklySchedule);
 
   useEffect(() => {
+    // En la vista previa estática no hay API: se muestra el horario configurado.
+    if (process.env.NEXT_PUBLIC_STATIC_PREVIEW === "1") return;
     const controller = new AbortController();
     fetch("/api/hours", { signal: controller.signal })
       .then((r) => (r.ok ? r.json() : null))

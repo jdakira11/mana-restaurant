@@ -5,16 +5,11 @@ import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "reac
 import { Calendar } from "./Calendar";
 import { ReservationConfirmation } from "./ReservationConfirmation";
 import { ArrowRight, Minus, Plus } from "@/components/ui/icons";
+import Link from "next/link";
+import { reservationClient, type SlotView } from "@/lib/reservations/client-api";
 import { reservationRequestSchema, type ReservationReceipt } from "@/lib/reservations/request-schema";
 import type { PublicReservationSettings } from "@/lib/reservations/settings-schema";
 import { addDays, formatDateLong } from "@/lib/reservations/time";
-
-interface SlotView {
-  time: string;
-  service: string;
-  available: boolean;
-  reason: "available" | "full" | "too_soon" | "blocked";
-}
 
 type Fields = { name: string; email: string; phone: string; notes: string; privacy: boolean };
 type FieldKey = keyof Fields | "partySize" | "date" | "time";
@@ -82,11 +77,10 @@ export function ReservationForm({ contactHint }: { contactHint?: string }) {
   useEffect(() => {
     if (!month || !monthKey) return;
     const controller = new AbortController();
-    fetch(`/api/availability?from=${month}-01&days=${daysInMonth(month)}`, { signal: controller.signal })
-      .then(async (res) => {
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error ?? "Error");
-        const dates = data.dates as { date: string; open: boolean }[];
+    reservationClient
+      .month(`${month}-01`, daysInMonth(month), controller.signal)
+      .then((data) => {
+        const dates = data.dates;
         setSettings(data.settings);
         setToday(data.today);
         setMonthData({ key: monthKey, openDates: Object.fromEntries(dates.map((d) => [d.date, d.open])), error: null });
@@ -109,11 +103,9 @@ export function ReservationForm({ contactHint }: { contactHint?: string }) {
   useEffect(() => {
     if (!date || !slotsKey) return;
     const controller = new AbortController();
-    fetch(`/api/availability?date=${date}&party=${partySize}`, { signal: controller.signal })
-      .then(async (res) => {
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error ?? "Error");
-        const list = data.slots as SlotView[];
+    reservationClient
+      .slots(date, partySize, controller.signal)
+      .then((list) => {
         setSlotsData({ key: slotsKey, slots: list, error: null });
         setTime((t) => (t && list.some((s) => s.time === t && s.available) ? t : null));
       })
@@ -187,28 +179,24 @@ export function ReservationForm({ contactHint }: { contactHint?: string }) {
 
     setSubmitting(true);
     try {
-      const res = await fetch("/api/reservations", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (res.ok && data.reservation) {
-        setReceipt(data.reservation);
+      const result = await reservationClient.submit(payload);
+      if (result.ok) {
+        setReceipt(result.reservation);
         idempotencyKey.current = null;
         requestAnimationFrame(() => document.getElementById("reserva-confirmacion")?.focus());
         return;
       }
-      if (res.status === 422 && data.fieldErrors) {
-        setErrors(data.fieldErrors);
-        const first = FIELD_ORDER.find((k) => data.fieldErrors[k]);
+      if (result.status === 422 && result.fieldErrors) {
+        const fieldErrors = result.fieldErrors;
+        setErrors(fieldErrors);
+        const first = FIELD_ORDER.find((k) => fieldErrors[k]);
         if (first) focusField(first);
       }
-      if (res.status === 409 && data.code === "slot_unavailable") {
+      if (result.status === 409 && result.code === "slot_unavailable") {
         setTime(null);
         loadSlots();
       }
-      setFormError(data.error ?? "No hemos podido enviar la solicitud. Inténtalo de nuevo.");
+      setFormError(result.error);
     } catch {
       setFormError("Parece que hay un problema de conexión. Comprueba tu red e inténtalo de nuevo.");
     } finally {
@@ -231,6 +219,12 @@ export function ReservationForm({ contactHint }: { contactHint?: string }) {
 
   return (
     <form ref={formRef} onSubmit={onSubmit} noValidate className="space-y-10" aria-describedby={formError ? "form-error" : undefined}>
+      {reservationClient.demo && (
+        <p role="note" className="rounded-lg border border-dashed border-terracotta/60 bg-linen px-4 py-3 text-sm text-ink-soft">
+          <strong className="text-terracotta">Vista previa:</strong> puedes probar todo el proceso, pero las reservas de esta versión son de demostración y no
+          se envían al restaurante.
+        </p>
+      )}
       {/* 1 · Comensales */}
       <fieldset>
         <legend className="field-label !mb-3">1 · Número de personas</legend>
@@ -497,9 +491,9 @@ export function ReservationForm({ contactHint }: { contactHint?: string }) {
             />
             <span>
               He leído y acepto la{" "}
-              <a href="/privacidad" target="_blank" className="font-medium text-terracotta underline underline-offset-4">
+              <Link href="/privacidad" target="_blank" className="font-medium text-terracotta underline underline-offset-4">
                 política de privacidad
-              </a>
+              </Link>
               . Usaremos tus datos solo para gestionar esta reserva.
             </span>
           </label>

@@ -43,3 +43,6 @@ next-env.d.ts
 # datos locales de PGlite
 /.data
 !.env.example
+
+# vista previa estática (GitHub Pages)
+/.static-export-backup

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
+import Link from "next/link";
 import { LegalPage } from "@/components/site/LegalPage";
 
 export const metadata: Metadata = {
@@ -38,7 +39,7 @@ export default function LegalNoticePage() {
       <h2>Contenido e imágenes</h2>
       <p>
         Mientras el restaurante no disponga de fotografía propia, algunas imágenes de esta web son fotografías ilustrativas obtenidas de Unsplash bajo su licencia.
-        No representan platos ni instalaciones reales del restaurante. Consulta los <a href="/creditos">créditos fotográficos</a>.
+        No representan platos ni instalaciones reales del restaurante. Consulta los <Link href="/creditos">créditos fotográficos</Link>.
       </p>
 
       <h2>Reservas</h2>

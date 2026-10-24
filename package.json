@@ -12,7 +12,8 @@
     "test": "vitest run",
     "admin:hash": "node scripts/hash-password.mjs",
     "db:migrate": "node --env-file-if-exists=.env.local scripts/migrate.mts",
-    "db:export-sql": "node scripts/export-schema.mts"
+    "db:export-sql": "node scripts/export-schema.mts",
+    "deploy:pages": "node scripts/deploy-pages.mjs"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.11",

@@ -210,6 +210,21 @@ Avisos implementados:
 3. Configura las variables de entorno de `.env.example`, como mínimo: `NEXT_PUBLIC_SITE_URL`, `DATABASE_URL`, `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`, `SESSION_SECRET`, y las de correo cuando las tengas.
 4. Despliega y conecta el dominio.
 
+### Vista previa en GitHub Pages (solo la parte visual)
+
+**Enlace:** https://jdakira11.github.io/mana-restaurant/
+
+Es una versión estática, sin servidor: incluye toda la web y el formulario de reservas en **modo demostración**, que calcula los horarios en el navegador, muestra la confirmación con un aviso y no guarda ni envía nada. No incluye el panel `/admin`, la API ni la gestión de reservas.
+
+Para publicar los cambios después de editar el proyecto:
+
+```bash
+npm run deploy:pages            # compila y publica en la rama gh-pages (1-2 min en verse)
+npm run deploy:pages -- --local # solo genera out/ para revisarla antes
+```
+
+El script aparta temporalmente las partes que requieren servidor, compila con `STATIC_EXPORT=1` y la ruta base `/mana-restaurant`, y publica `out/` en la rama `gh-pages`.
+
 ### Demo de portafolio en Vercel (sin base de datos externa)
 
 Para enseñar la web con reservas funcionando, sin crear una base de datos:

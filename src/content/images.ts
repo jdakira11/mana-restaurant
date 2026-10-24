@@ -1,19 +1,19 @@
 import type { StaticImageData } from "next/image";
-import archedEntry from "@/assets/images/arched-entry-lanterns.jpg";
-import candlelitTable from "@/assets/images/candlelit-table.jpg";
-import clayPot from "@/assets/images/clay-pot-stew.jpg";
-import dipsSpices from "@/assets/images/dips-spices-board.jpg";
-import doughHands from "@/assets/images/dough-hands.jpg";
-import grillSkewers from "@/assets/images/grill-skewers.jpg";
-import heroMezze from "@/assets/images/hero-mezze-slate.jpg";
-import hummusBowl from "@/assets/images/hummus-patterned-bowl.jpg";
-import longTable from "@/assets/images/long-table-candles.jpg";
-import mezzePlates from "@/assets/images/mezze-patterned-plates.jpg";
-import pistachioPastry from "@/assets/images/pistachio-pastry.jpg";
-import pomegranate from "@/assets/images/pomegranate-dark.jpg";
-import sharedTable from "@/assets/images/shared-table-wood.jpg";
-import teaGlass from "@/assets/images/tea-pouring-glass.jpg";
-import teaSilver from "@/assets/images/tea-pouring-silver.jpg";
+import archedEntry from "@/assets/images/arched-entry-lanterns.webp";
+import candlelitTable from "@/assets/images/candlelit-table.webp";
+import clayPot from "@/assets/images/clay-pot-stew.webp";
+import dipsSpices from "@/assets/images/dips-spices-board.webp";
+import doughHands from "@/assets/images/dough-hands.webp";
+import grillSkewers from "@/assets/images/grill-skewers.webp";
+import heroMezze from "@/assets/images/hero-mezze-slate.webp";
+import hummusBowl from "@/assets/images/hummus-patterned-bowl.webp";
+import longTable from "@/assets/images/long-table-candles.webp";
+import mezzePlates from "@/assets/images/mezze-patterned-plates.webp";
+import pistachioPastry from "@/assets/images/pistachio-pastry.webp";
+import pomegranate from "@/assets/images/pomegranate-dark.webp";
+import sharedTable from "@/assets/images/shared-table-wood.webp";
+import teaGlass from "@/assets/images/tea-pouring-glass.webp";
+import teaSilver from "@/assets/images/tea-pouring-silver.webp";
 
 /**
  * Registro de imágenes. Todas proceden de Unsplash (licencia Unsplash: uso comercial gratuito,

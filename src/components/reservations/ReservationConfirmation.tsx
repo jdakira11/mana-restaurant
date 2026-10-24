@@ -13,6 +13,12 @@ export function ReservationConfirmation({ receipt, onNew }: { receipt: Reservati
       <div className={`flex h-14 w-14 items-center justify-center rounded-full ${confirmed ? "bg-success text-linen" : "bg-brass/20 text-terracotta"}`}>
         {confirmed ? <Check width={28} height={28} /> : <Clock width={28} height={28} />}
       </div>
+      {receipt.demo && (
+        <p role="note" className="mt-6 rounded-lg border border-dashed border-terracotta/60 bg-linen px-4 py-3 text-sm text-ink-soft">
+          <strong className="text-terracotta">Reserva de demostración.</strong> Así verá el cliente su confirmación. En esta vista previa no se ha guardado ni
+          enviado nada.
+        </p>
+      )}
       <p className="eyebrow mt-8">{confirmed ? "Reserva confirmada" : "Solicitud recibida"}</p>
       <h3 className="font-display mt-4 text-[clamp(2rem,4vw,2.75rem)] leading-tight">
         {confirmed ? `Te esperamos, ${firstName}.` : `Gracias, ${firstName}.`}
