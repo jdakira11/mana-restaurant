@@ -44,6 +44,8 @@ try {
 } finally {
   for (const [from, to] of moved.reverse()) renameSync(to, from);
   rmSync(backup, { recursive: true, force: true });
+  // La compilación estática deja tipos de rutas sin el panel: se regeneran con el proyecto completo.
+  execSync("npx next typegen", { stdio: "ignore" });
 }
 
 const out = path.join(root, "out");

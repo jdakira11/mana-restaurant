@@ -19,7 +19,7 @@ export function Story() {
 
         <h2 id="historia-title" className="mt-8 max-w-5xl text-[clamp(1.85rem,4.4vw,3.6rem)] leading-[1.12]" data-reveal>
           {story.statement.before}{" "}
-          <em className="text-terracotta" style={{ fontVariationSettings: '"SOFT" 100' }}>
+          <em className="font-script text-[1.4em] leading-[0.7] text-terracotta not-italic">
             {story.statement.accent}
           </em>
           {story.statement.after}
@@ -53,7 +53,7 @@ export function Story() {
             <dl className="mt-12 grid gap-6 border-t border-line pt-8 sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-3">
               {story.pillars.map((pillar, i) => (
                 <div key={pillar.title} data-reveal style={{ ["--reveal-delay" as string]: `${i * 120}ms` }}>
-                  <dt className="font-display text-2xl">{pillar.title}</dt>
+                  <dt className="font-script text-4xl">{pillar.title}</dt>
                   <dd className="mt-2 text-[0.9375rem] leading-relaxed text-ink-mute">{pillar.text}</dd>
                 </div>
               ))}

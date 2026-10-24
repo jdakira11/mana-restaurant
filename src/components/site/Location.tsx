@@ -109,7 +109,7 @@ export function Location() {
               <Image src={images.archedEntry.src} alt="" fill sizes="(min-width: 1024px) 55vw, 100vw" placeholder="blur" className="object-cover opacity-70" />
               <div className="absolute inset-0 bg-gradient-to-t from-olive-deep via-olive-deep/40 to-transparent" />
               <div className="on-dark relative p-8 text-linen md:p-10">
-                <p className="font-display text-3xl md:text-4xl">Mapa próximamente</p>
+                <p className="font-script text-5xl md:text-6xl">Mapa próximamente</p>
                 <p className="mt-3 max-w-sm text-linen/75">Publicaremos aquí la ubicación exacta de {siteConfig.name} en cuanto esté confirmada.</p>
               </div>
             </div>

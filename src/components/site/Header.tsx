@@ -126,7 +126,7 @@ export function Header() {
           <ul className="space-y-1">
             {navigation.map((item, i) => (
               <li key={item.href} className="menu-line" style={{ ["--i" as string]: i * 0.6 }}>
-                <Link href={item.href} onClick={() => setOpen(false)} className="font-display block py-2 text-[clamp(2.25rem,9vw,3.5rem)] leading-tight">
+                <Link href={item.href} onClick={() => setOpen(false)} className="font-script block py-1 text-[clamp(2.9rem,11vw,4.2rem)] leading-tight">
                   {item.label}
                 </Link>
               </li>

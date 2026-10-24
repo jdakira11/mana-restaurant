@@ -23,6 +23,7 @@
 
   --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
   --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-script: var(--font-greatvibes), "Snell Roundhand", "Segoe Script", cursive;
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
   --radius-arch: 999px 999px 0 0;
@@ -103,16 +104,29 @@
     color: var(--color-brass);
   }
 
+  /* Títulos en caligrafía (Great Vibes). Sin espaciado negativo: rompería las uniones entre
+     letras; interlineado amplio para que las florituras no choquen. */
+  .font-script,
+  .display-xl,
+  .display-lg,
+  .display-md {
+    font-family: var(--font-script);
+    font-weight: 400;
+    letter-spacing: 0;
+    font-variation-settings: normal;
+    word-spacing: 0.12em;
+  }
   .display-xl {
-    font-size: clamp(3.25rem, 11vw, 9.5rem);
-    line-height: 0.92;
-    letter-spacing: -0.03em;
+    font-size: clamp(4.25rem, 14vw, 11.5rem);
+    line-height: 0.94;
   }
   .display-lg {
-    font-size: clamp(2.4rem, 6vw, 4.75rem);
+    font-size: clamp(3.1rem, 7.5vw, 6rem);
+    line-height: 1.08;
   }
   .display-md {
-    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-size: clamp(2.6rem, 5vw, 3.9rem);
+    line-height: 1.1;
   }
 
   /* Botones */

@@ -20,7 +20,7 @@ export function ReservationConfirmation({ receipt, onNew }: { receipt: Reservati
         </p>
       )}
       <p className="eyebrow mt-8">{confirmed ? "Reserva confirmada" : "Solicitud recibida"}</p>
-      <h3 className="font-display mt-4 text-[clamp(2rem,4vw,2.75rem)] leading-tight">
+      <h3 className="font-script mt-4 text-[clamp(2.8rem,5vw,3.8rem)] leading-tight">
         {confirmed ? `Te esperamos, ${firstName}.` : `Gracias, ${firstName}.`}
       </h3>
       <p className="mt-4 max-w-lg text-lg leading-relaxed text-ink-soft">

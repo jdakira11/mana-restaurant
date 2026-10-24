@@ -34,8 +34,8 @@ export function Hero() {
               {hero.title[0]}
             </span>
             <span
-              className="hero-line italic text-[#e9d8b8]"
-              style={{ ["--i" as string]: 1, fontVariationSettings: '"SOFT" 100' }}
+              className="hero-line text-[#e9d8b8]"
+              style={{ ["--i" as string]: 1 }}
             >
               {hero.title[1]}
             </span>

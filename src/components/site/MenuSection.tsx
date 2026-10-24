@@ -111,13 +111,13 @@ export function MenuSection() {
               className="md:col-span-7 lg:col-span-7"
               style={{ animation: "fade .6s ease both" }}
             >
-              <h3 className="font-display text-3xl md:text-4xl">{category.name}</h3>
+              <h3 className="font-script text-5xl md:text-6xl">{category.name}</h3>
               {category.description && <p className="mt-2 text-ink-mute">{category.description}</p>}
               <ul className="mt-8 divide-y divide-ink/10 border-y border-ink/10">
                 {category.items.map((item) => (
                   <li key={item.id} className="py-6">
                     <div className="flex items-baseline gap-4">
-                      <h4 className="font-display text-xl md:text-2xl">{item.name}</h4>
+                      <h4 className="font-script text-[2rem] leading-none md:text-[2.35rem]">{item.name}</h4>
                       {item.demo && siteConfig.showContentNotices && (
                         <span className="rounded-full border border-terracotta/40 bg-linen px-2 py-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-terracotta">Ejemplo</span>
                       )}
@@ -163,7 +163,7 @@ export function MenuSection() {
         )}
 
         <div className="mt-16 flex flex-col items-start gap-4 border-t border-ink/10 pt-10 sm:flex-row sm:items-center sm:justify-between" data-reveal>
-          <p className="font-display text-2xl md:text-3xl">La mesa te espera.</p>
+          <p className="font-script text-5xl md:text-6xl">La mesa te espera.</p>
           <Link href="#reservas" className="btn btn-primary">
             Reservar mesa
           </Link>

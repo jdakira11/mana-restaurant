@@ -56,7 +56,7 @@ export function Experience() {
                   <div className="absolute inset-0 bg-gradient-to-t from-olive-deep/60 via-transparent to-transparent" />
                   <span className="font-display absolute bottom-4 left-5 text-5xl text-linen/90">{m.key}</span>
                 </div>
-                <h3 className="mt-6 text-2xl md:text-[1.7rem]">{m.title}</h3>
+                <h3 className="font-script mt-6 text-[2.3rem] leading-tight md:text-[2.5rem]">{m.title}</h3>
                 <p className="mt-3 text-[0.9375rem] leading-relaxed text-linen/70">{m.text}</p>
               </article>
             </li>

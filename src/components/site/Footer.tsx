@@ -14,7 +14,7 @@ export function Footer() {
         <div className="flex flex-col gap-10 border-b border-linen/15 pb-14 md:flex-row md:items-end md:justify-between">
           <div>
             <Logo size="xl" className="block text-linen" />
-            <p className="font-display mt-4 text-2xl italic text-linen/70">{siteConfig.tagline}</p>
+            <p className="font-script mt-4 text-4xl text-linen/70">{siteConfig.tagline}</p>
           </div>
           <Link href="/#reservas" className="btn btn-primary self-start md:self-auto">
             Reservar mesa
