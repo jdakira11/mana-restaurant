@@ -1,7 +1,7 @@
 import { after, NextResponse, type NextRequest } from "next/server";
 import { DatabaseConfigError } from "@/lib/db/client";
 import { isEmailConfigured } from "@/lib/email/provider";
-import { manageUrlFor, notify } from "@/lib/reservations/notifications";
+import { notify } from "@/lib/reservations/notifications";
 import { reservationRequestSchema, type ReservationReceipt } from "@/lib/reservations/request-schema";
 import { createReservation, ReservationError } from "@/lib/reservations/service";
 import { checkRateLimit, clientIp, RATE_LIMITS } from "@/lib/security/rate-limit";
@@ -72,7 +72,8 @@ export async function POST(request: NextRequest) {
       date: reservation.date,
       time: reservation.time,
       partySize: reservation.partySize,
-      manageUrl: manageToken ? manageUrlFor(manageToken) : "",
+      // Ruta relativa: funciona en cualquier dominio (local, túnel, Vercel). Los correos usan la URL absoluta.
+      manageUrl: manageToken ? `/reservas/gestionar?token=${encodeURIComponent(manageToken)}` : "",
       emailNotifications: isEmailConfigured(),
     };
     return json({ reservation: receipt }, replayed ? 200 : 201);
