@@ -80,7 +80,7 @@ export const siteConfig: SiteConfig = {
     region: "Región Metropolitana",
     postalCode: null,
     country: "Chile",
-    phone: null,
+    phone: "+56 2 1234 5678",
     whatsapp: "56912345678",
     email: "contacto@manamuestra.com",
     // Mapa de la comuna (no de una dirección concreta).

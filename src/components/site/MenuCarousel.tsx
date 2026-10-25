@@ -28,7 +28,11 @@ export function MenuCarousel({ items, label }: { items: MenuCarouselItem[]; labe
 
   const cards = () => Array.from(scrollerRef.current?.querySelectorAll<HTMLElement>("[data-card]") ?? []);
 
-  // Plato más cercano al centro y estado de los bordes.
+  /**
+   * En cada fotograma calcula la cercanía de cada plato al centro (--p: 1 en el centro, 0 a un
+   * plato de distancia) para que tamaño, opacidad y color cambien de forma continua al deslizar.
+   * Se escribe directamente en el estilo para no re-renderizar React en cada fotograma.
+   */
   const update = useCallback(() => {
     const el = scrollerRef.current;
     if (!el) return;
@@ -36,7 +40,10 @@ export function MenuCarousel({ items, label }: { items: MenuCarouselItem[]; labe
     let best = 0;
     let bestDist = Infinity;
     cards().forEach((card, i) => {
+      const step = card.offsetWidth + parseFloat(getComputedStyle(el).columnGap || "0");
       const d = Math.abs(card.offsetLeft + card.offsetWidth / 2 - center);
+      const p = Math.max(0, 1 - d / step);
+      card.style.setProperty("--p", (p * p * (3 - 2 * p)).toFixed(3)); // suavizado (smoothstep)
       if (d < bestDist) {
         bestDist = d;
         best = i;
@@ -46,12 +53,13 @@ export function MenuCarousel({ items, label }: { items: MenuCarouselItem[]; labe
     setEdges({ left: el.scrollLeft > 8, right: el.scrollLeft < el.scrollWidth - el.clientWidth - 8 });
   }, []);
 
+  // Cálculo inicial y al cambiar el tamaño de la ventana.
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
-    const onResize = () => update();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    const ro = new ResizeObserver(() => update());
+    ro.observe(el);
+    return () => ro.disconnect();
   }, [update]);
 
   const onScroll = () => {
@@ -116,11 +124,7 @@ export function MenuCarousel({ items, label }: { items: MenuCarouselItem[]; labe
               key={item.id}
               data-card
               aria-current={isActive ? "true" : undefined}
-              className={`flex w-[var(--card)] shrink-0 snap-center flex-col overflow-hidden rounded-2xl border border-ink/10 bg-linen transition-[transform,opacity,filter,box-shadow] duration-500 ease-[var(--ease-out-soft)] ${
-                isActive
-                  ? "scale-100 opacity-100 shadow-[0_30px_60px_-35px_rgb(31_26_22/0.6)]"
-                  : "scale-[0.9] opacity-50 shadow-none saturate-[0.25]"
-              }`}
+              className="flex w-[var(--card)] shrink-0 snap-center flex-col overflow-hidden rounded-2xl border border-ink/10 bg-linen will-change-transform [transform:scale(calc(0.88_+_0.12*var(--p,0)))] [opacity:calc(0.45_+_0.55*var(--p,0))] [filter:saturate(calc(0.25_+_0.75*var(--p,0)))] [box-shadow:0_30px_60px_-35px_rgb(31_26_22/calc(0.6*var(--p,0)))]"
               onClick={(e) => {
                 if (!isActive) {
                   e.preventDefault();

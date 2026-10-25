@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 import { copy } from "@/content/copy";
 import { images } from "@/content/images";
 import { ReservationForm } from "@/components/reservations/ReservationForm";
-import { Phone } from "@/components/ui/icons";
+import { Phone, WhatsAppIcon } from "@/components/ui/icons";
 import { OpeningHours } from "./OpeningHours";
 import { SectionHeader } from "./SectionHeader";
 
@@ -31,15 +31,21 @@ export function ReservationsSection() {
               {(phone || whatsapp) && (
                 <div>
                   <p className="field-label">¿Prefieres hablar con nosotros?</p>
-                  <div className="flex flex-wrap gap-x-6 gap-y-2">
+                  <div className="flex flex-col items-start gap-4">
+                    {whatsapp && (
+                      <a
+                        href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(`Hola, quisiera reservar una mesa en ${siteConfig.name}.`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn bg-[#1f7a4d] text-linen hover:bg-[#17603c]"
+                      >
+                        <WhatsAppIcon />
+                        Escríbenos por WhatsApp
+                      </a>
+                    )}
                     {phone && (
                       <a href={`tel:${phone.replace(/\s/g, "")}`} className="link-underline inline-flex items-center gap-2 font-medium text-ink">
                         <Phone width={16} height={16} /> {phone}
-                      </a>
-                    )}
-                    {whatsapp && (
-                      <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener noreferrer" className="link-underline font-medium text-ink">
-                        WhatsApp
                       </a>
                     )}
                   </div>
