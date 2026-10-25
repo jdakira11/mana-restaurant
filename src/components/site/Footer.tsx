@@ -11,12 +11,12 @@ export function Footer() {
   return (
     <footer className="on-dark bg-olive-deep text-linen">
       <div className="container-x pb-28 pt-20 md:pb-12 md:pt-28">
-        <div className="flex flex-col gap-10 border-b border-linen/15 pb-14 md:flex-row md:items-end md:justify-between">
-          <div>
-            <Logo size="xl" className="block text-linen" />
-            <p className="font-script mt-4 text-4xl text-linen/70">{siteConfig.tagline}</p>
+        <div className="flex flex-col items-center gap-8 border-b border-linen/15 pb-14 text-center">
+          <div className="flex flex-col items-center">
+            <Logo variant="stacked" size="xl" className="text-linen" />
+            <p className="font-script mt-3 text-4xl text-linen/70">{siteConfig.tagline}</p>
           </div>
-          <Link href="/#reservas" className="btn btn-primary self-start md:self-auto">
+          <Link href="/#reservas" className="btn btn-primary">
             Reservar mesa
           </Link>
         </div>

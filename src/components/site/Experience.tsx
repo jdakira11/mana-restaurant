@@ -5,28 +5,24 @@ import { copy } from "@/content/copy";
 import { images } from "@/content/images";
 import { ArrowRight } from "@/components/ui/icons";
 import { ProvisionalTag } from "@/components/ui/Notice";
+import { SectionHeader } from "./SectionHeader";
 
 export function Experience() {
   const { experience } = copy;
   return (
     <section id="experiencia" aria-labelledby="experiencia-title" className="on-dark relative overflow-hidden bg-olive-deep py-24 text-linen md:py-36">
       <div className="container-x">
-        <div className="grid gap-8 md:grid-cols-12 md:items-end">
-          <div className="md:col-span-7">
-            <div className="flex flex-wrap items-center gap-4" data-reveal>
-              <p className="eyebrow">{experience.eyebrow}</p>
-              <ProvisionalTag show={!siteConfig.contentStatus.experience} className="text-linen/70">
-                Propuesta provisional
-              </ProvisionalTag>
-            </div>
-            <h2 id="experiencia-title" className="display-lg mt-6" data-reveal>
-              {experience.title}
-            </h2>
-          </div>
-          <p className="text-lg leading-relaxed text-linen/75 md:col-span-5" data-reveal>
-            {experience.intro}
-          </p>
-        </div>
+        <SectionHeader
+          id="experiencia-title"
+          eyebrow={experience.eyebrow}
+          title={experience.title}
+          intro={experience.intro}
+          tag={
+            <ProvisionalTag show={!siteConfig.contentStatus.experience} className="text-linen/70">
+              Propuesta provisional
+            </ProvisionalTag>
+          }
+        />
       </div>
 
       {/* Móvil: carrusel con desplazamiento táctil · Escritorio: composición escalonada */}
@@ -43,7 +39,7 @@ export function Experience() {
               data-reveal
               style={{ ["--reveal-delay" as string]: `${i * 110}ms` }}
             >
-              <article className="group">
+              <article className="group text-center">
                 <div className={`relative aspect-[3/4] overflow-hidden ${i % 2 === 0 ? "arch" : "rounded-sm"}`}>
                   <Image
                     src={img.src}

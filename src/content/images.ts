@@ -14,6 +14,12 @@ import pomegranate from "@/assets/images/pomegranate-dark.webp";
 import sharedTable from "@/assets/images/shared-table-wood.webp";
 import teaGlass from "@/assets/images/tea-pouring-glass.webp";
 import teaSilver from "@/assets/images/tea-pouring-silver.webp";
+import guestBreadTea from "@/assets/images/guest-bread-tea.webp";
+import guestMezzeTable from "@/assets/images/guest-mezze-table.webp";
+import guestPlatterRice from "@/assets/images/guest-platter-rice.webp";
+import guestSoupMezze from "@/assets/images/guest-soup-mezze.webp";
+import guestTagineShare from "@/assets/images/guest-tagine-share.webp";
+import guestTeaDates from "@/assets/images/guest-tea-dates.webp";
 
 /**
  * Registro de imágenes. Todas proceden de Unsplash (licencia Unsplash: uso comercial gratuito,
@@ -110,6 +116,38 @@ export const images = {
     src: dipsSpices,
     alt: "Tabla de madera con pan, cremas, encurtidos y especias en pequeños cuencos",
     credit: unsplash("Chetanya Sharma", "chetanya_designs", "zyeyksoJf78"),
+  },
+  // Fotos de la galería de opiniones: personas compartiendo mesa, sin caras reconocibles
+  // (las opiniones son ilustrativas y no deben atribuirse a personas reales identificables).
+  guestMezzeTable: {
+    src: guestMezzeTable,
+    alt: "Comensal ante una mesa con platos de mezze, pan y brochetas",
+    credit: unsplash("Jean-Luc Picard", "jeanlucbe", "KzVfKnpqO6k"),
+  },
+  guestTagineShare: {
+    src: guestTagineShare,
+    alt: "Varias manos sirviéndose de una cazuela compartida con frutos secos y ciruelas",
+    credit: unsplash("sour moha", "sour_moha", "5t2SP3vQz28"),
+  },
+  guestTeaDates: {
+    src: guestTeaDates,
+    alt: "Manos alrededor de una mesa con tetera, dátiles y mantel estampado",
+    credit: unsplash("86 media", "eightysixmedia", "87GUGAcSyC4"),
+  },
+  guestPlatterRice: {
+    src: guestPlatterRice,
+    alt: "Comensal sirviéndose de una gran fuente de arroz con verduras y carnes",
+    credit: unsplash("Pouya Hajibagheri", "pouyahajibagheri", "9diPgS3uS0Q"),
+  },
+  guestSoupMezze: {
+    src: guestSoupMezze,
+    alt: "Mesa con sopa, croquetas y pequeños platos compartidos",
+    credit: unsplash("Cemrecan Yurtman", "cmrcn_", "CwGpQibkkXg"),
+  },
+  guestBreadTea: {
+    src: guestBreadTea,
+    alt: "Manos compartiendo pan horneado y té en vaso de cristal",
+    credit: unsplash("Yasin Onus", "yasinonus", "ge7FkL5jPl4"),
   },
 } satisfies Record<string, SiteImage>;
 

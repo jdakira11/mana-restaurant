@@ -7,6 +7,7 @@ import { copy } from "@/content/copy";
 import { images } from "@/content/images";
 import { ChevronLeft, ChevronRight, Close, Expand } from "@/components/ui/icons";
 import { ProvisionalTag } from "@/components/ui/Notice";
+import { SectionHeader } from "./SectionHeader";
 
 const items = copy.gallery.items.map((item) => ({ ...item, ...images[item.image] }));
 
@@ -54,19 +55,16 @@ export function Gallery() {
   return (
     <section id="galeria" aria-labelledby="galeria-title" className="py-24 md:py-36">
       <div className="container-x">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="eyebrow" data-reveal>
-              {copy.gallery.eyebrow}
-            </p>
-            <h2 id="galeria-title" className="display-lg mt-6 max-w-2xl" data-reveal>
-              {copy.gallery.title}
-            </h2>
-          </div>
-          <ProvisionalTag show={!siteConfig.contentStatus.photos} className="self-start text-ink-mute md:self-auto">
-            Fotografías ilustrativas de banco de imágenes
-          </ProvisionalTag>
-        </div>
+        <SectionHeader
+          id="galeria-title"
+          eyebrow={copy.gallery.eyebrow}
+          title={copy.gallery.title}
+          tag={
+            <ProvisionalTag show={!siteConfig.contentStatus.photos} className="text-ink-mute">
+              Fotografías ilustrativas de banco de imágenes
+            </ProvisionalTag>
+          }
+        />
 
         <ul className="mt-14 grid grid-flow-dense auto-rows-[9rem] grid-cols-2 gap-3 sm:auto-rows-[12rem] md:mt-20 md:auto-rows-[7.5rem] md:grid-cols-12 md:gap-5 lg:auto-rows-[8.5rem]">
           {items.map((item, i) => (

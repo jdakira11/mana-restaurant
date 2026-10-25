@@ -5,6 +5,7 @@ import { images } from "@/content/images";
 import { Chat, Clock, Mail, Phone, Pin } from "@/components/ui/icons";
 import { Pending } from "@/components/ui/Notice";
 import { OpeningHours } from "./OpeningHours";
+import { SectionHeader } from "./SectionHeader";
 import { SocialLinks } from "./SocialLinks";
 
 export function Location() {
@@ -64,16 +65,12 @@ export function Location() {
 
   return (
     <section id="contacto" aria-labelledby="contacto-title" className="py-24 md:py-36">
-      <div className="container-x grid gap-14 lg:grid-cols-12 lg:gap-10">
+      <div className="container-x">
+        <SectionHeader id="contacto-title" eyebrow={copy.contact.eyebrow} title={copy.contact.title} />
+      </div>
+      <div className="container-x mt-14 grid gap-14 md:mt-20 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
-          <p className="eyebrow" data-reveal>
-            {copy.contact.eyebrow}
-          </p>
-          <h2 id="contacto-title" className="display-lg mt-6" data-reveal>
-            {copy.contact.title}
-          </h2>
-
-          <dl className="mt-12 divide-y divide-line border-y border-line" data-reveal>
+          <dl className="divide-y divide-line border-y border-line" data-reveal>
             {rows.map(({ icon: Icon, label, value }) => (
               <div key={label} className="grid grid-cols-[2rem_1fr] gap-x-3 py-5 sm:grid-cols-[2rem_8rem_1fr]">
                 <Icon className="mt-0.5 text-terracotta" />

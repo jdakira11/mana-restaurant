@@ -5,6 +5,7 @@ import { images } from "@/content/images";
 import { ReservationForm } from "@/components/reservations/ReservationForm";
 import { Phone } from "@/components/ui/icons";
 import { OpeningHours } from "./OpeningHours";
+import { SectionHeader } from "./SectionHeader";
 
 export function ReservationsSection() {
   const { phone, whatsapp } = siteConfig.contact;
@@ -12,20 +13,13 @@ export function ReservationsSection() {
 
   return (
     <section id="reservas" aria-labelledby="reservas-title" className="relative bg-ivory py-24 md:py-36">
-      <div className="container-x grid gap-14 lg:grid-cols-12 lg:gap-10">
+      <div className="container-x">
+        <SectionHeader id="reservas-title" eyebrow={copy.reservations.eyebrow} title={copy.reservations.title} intro={copy.reservations.intro} />
+      </div>
+      <div className="container-x mt-14 grid gap-14 md:mt-20 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-28">
-            <p className="eyebrow" data-reveal>
-              {copy.reservations.eyebrow}
-            </p>
-            <h2 id="reservas-title" className="display-lg mt-6" data-reveal>
-              {copy.reservations.title}
-            </h2>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft" data-reveal>
-              {copy.reservations.intro}
-            </p>
-
-            <div className="relative mt-10 hidden aspect-[16/10] max-w-md overflow-hidden rounded-sm lg:block" data-reveal="image">
+            <div className="relative hidden aspect-[16/10] max-w-md overflow-hidden rounded-sm lg:block" data-reveal="image">
               <Image src={images.candlelitTable.src} alt={images.candlelitTable.alt} fill sizes="30vw" placeholder="blur" className="object-cover" />
             </div>
 

@@ -100,6 +100,14 @@
     background: currentColor;
     opacity: 0.6;
   }
+  /* Variante centrada: línea a ambos lados */
+  .eyebrow-center::after {
+    content: "";
+    width: 2rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.6;
+  }
   .on-dark .eyebrow {
     color: var(--color-brass);
   }
@@ -122,11 +130,11 @@
   }
   .display-lg {
     font-size: clamp(3.1rem, 7.5vw, 6rem);
-    line-height: 1.08;
+    line-height: 0.98;
   }
   .display-md {
     font-size: clamp(2.6rem, 5vw, 3.9rem);
-    line-height: 1.1;
+    line-height: 1;
   }
 
   /* Botones */

@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/site";
 import { copy } from "@/content/copy";
 import { images } from "@/content/images";
 import { ArchOrnament } from "@/components/ui/icons";
+import { LogoMark } from "@/components/ui/Logo";
 import { ProvisionalTag } from "@/components/ui/Notice";
 
 export function Story() {
@@ -10,14 +11,15 @@ export function Story() {
   return (
     <section id="historia" aria-labelledby="historia-title" className="relative overflow-hidden py-24 md:py-36">
       <div className="container-x">
-        <div className="flex flex-wrap items-center gap-4" data-reveal>
-          <p className="eyebrow">{story.eyebrow}</p>
+        <div className="flex flex-col items-center gap-4 text-center" data-reveal>
+          <LogoMark className="h-9 w-auto text-brass" />
+          <p className="eyebrow eyebrow-center mt-1">{story.eyebrow}</p>
           <ProvisionalTag show={!siteConfig.contentStatus.story} className="text-ink-mute">
             Texto conceptual provisional
           </ProvisionalTag>
         </div>
 
-        <h2 id="historia-title" className="mt-8 max-w-5xl text-[clamp(1.85rem,4.4vw,3.6rem)] leading-[1.12]" data-reveal>
+        <h2 id="historia-title" className="mx-auto mt-8 max-w-5xl text-center text-[clamp(1.85rem,4.4vw,3.6rem)] leading-[1.12]" data-reveal>
           {story.statement.before}{" "}
           <em className="font-script text-[1.4em] leading-[0.7] text-terracotta not-italic">
             {story.statement.accent}

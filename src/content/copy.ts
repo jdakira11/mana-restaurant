@@ -74,7 +74,7 @@ export const copy = {
   testimonials: {
     eyebrow: "Opiniones",
     title: "Lo que se dice en la mesa",
-    empty: "Muy pronto compartiremos aquí las opiniones verificadas de nuestros comensales.",
+    intro: "Experiencias de quienes ya compartieron mesa con nosotros.",
   },
 
   contact: {

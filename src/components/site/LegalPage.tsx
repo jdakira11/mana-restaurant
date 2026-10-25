@@ -2,7 +2,7 @@ export function LegalPage({ title, children, notice }: { title: string; children
   return (
     <article className="container-x pb-24 pt-32 md:pb-36 md:pt-44">
       <div className="mx-auto max-w-3xl">
-        <h1 className="display-md">{title}</h1>
+        <h1 className="display-md text-center">{title}</h1>
         {notice && (
           <div role="note" className="mt-8 rounded-lg border border-dashed border-terracotta/60 bg-linen px-5 py-4 text-[0.9375rem] text-ink-soft">
             {notice}

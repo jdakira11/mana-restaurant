@@ -8,6 +8,7 @@ import { copy } from "@/content/copy";
 import { images } from "@/content/images";
 import { ALLERGEN_LABELS, menu, type DietaryTag } from "@/content/menu";
 import { ProvisionalTag } from "@/components/ui/Notice";
+import { SectionHeader } from "./SectionHeader";
 
 const TAG_LABELS: Record<DietaryTag, string> = {
   vegetariano: "Vegetariano",
@@ -43,27 +44,24 @@ export function MenuSection() {
   return (
     <section id="menu" aria-labelledby="menu-title" className="bg-sand py-24 md:py-36">
       <div className="container-x">
-        <div className="grid gap-8 md:grid-cols-12 md:items-end">
-          <div className="md:col-span-7">
-            <p className="eyebrow" data-reveal>
-              {copy.menu.eyebrow}
-            </p>
-            <h2 id="menu-title" className="display-lg mt-6" data-reveal>
-              {copy.menu.title}
-            </h2>
-          </div>
-          <div className="md:col-span-5" data-reveal>
-            <p className="text-lg leading-relaxed text-ink-soft">{copy.menu.intro}</p>
-            {siteConfig.menuPdfUrl && (
-              <a href={siteConfig.menuPdfUrl} className="link-underline mt-4 inline-block text-sm font-semibold uppercase tracking-[0.14em] text-terracotta" target="_blank" rel="noopener">
-                Descargar carta (PDF)
-              </a>
-            )}
-          </div>
-        </div>
+        <SectionHeader
+          id="menu-title"
+          eyebrow={copy.menu.eyebrow}
+          title={copy.menu.title}
+          intro={
+            <>
+              <p className="text-ink-soft">{copy.menu.intro}</p>
+              {siteConfig.menuPdfUrl && (
+                <a href={siteConfig.menuPdfUrl} className="link-underline mt-4 inline-block text-sm font-semibold uppercase tracking-[0.14em] text-terracotta" target="_blank" rel="noopener">
+                  Descargar carta (PDF)
+                </a>
+              )}
+            </>
+          }
+        />
 
         {isDemo && (
-          <p className="mt-10 rounded-lg border border-dashed border-terracotta/50 bg-linen/60 px-5 py-4 text-[0.9375rem] text-ink-soft" data-reveal>
+          <p className="mx-auto mt-10 max-w-4xl rounded-lg border border-dashed border-terracotta/50 bg-linen/60 px-5 py-4 text-center text-[0.9375rem] text-ink-soft" data-reveal>
             <strong className="font-semibold text-terracotta">Carta de demostración.</strong> Los platos que ves son ejemplos para mostrar el diseño: la carta oficial,
             con sus platos, precios y alérgenos, se publicará cuando el restaurante la facilite.
           </p>
@@ -74,7 +72,7 @@ export function MenuSection() {
             ref={tabsRef}
             role="tablist"
             aria-label="Categorías de la carta"
-            className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 pb-2 md:mx-0 md:flex-wrap md:px-0"
+            className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 pb-2 md:mx-0 md:flex-wrap md:justify-center md:px-0"
           >
             {menu.categories.map((c, i) => {
               const selected = c.id === category?.id;
@@ -111,8 +109,8 @@ export function MenuSection() {
               className="md:col-span-7 lg:col-span-7"
               style={{ animation: "fade .6s ease both" }}
             >
-              <h3 className="font-script text-5xl md:text-6xl">{category.name}</h3>
-              {category.description && <p className="mt-2 text-ink-mute">{category.description}</p>}
+              <h3 className="font-script text-center text-5xl md:text-6xl">{category.name}</h3>
+              {category.description && <p className="mt-2 text-center text-ink-mute">{category.description}</p>}
               <ul className="mt-8 divide-y divide-ink/10 border-y border-ink/10">
                 {category.items.map((item) => (
                   <li key={item.id} className="py-6">
@@ -162,7 +160,7 @@ export function MenuSection() {
           </div>
         )}
 
-        <div className="mt-16 flex flex-col items-start gap-4 border-t border-ink/10 pt-10 sm:flex-row sm:items-center sm:justify-between" data-reveal>
+        <div className="mt-16 flex flex-col items-center gap-6 border-t border-ink/10 pt-12 text-center" data-reveal>
           <p className="font-script text-5xl md:text-6xl">La mesa te espera.</p>
           <Link href="#reservas" className="btn btn-primary">
             Reservar mesa
