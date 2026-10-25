@@ -2,14 +2,13 @@ import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { copy } from "@/content/copy";
 import { images } from "@/content/images";
-import { ArchOrnament } from "@/components/ui/icons";
 import { LogoMark } from "@/components/ui/Logo";
 import { ProvisionalTag } from "@/components/ui/Notice";
 
 export function Story() {
   const { story } = copy;
   return (
-    <section id="historia" aria-labelledby="historia-title" className="relative overflow-hidden py-24 md:py-36">
+    <section id="historia" aria-labelledby="historia-title" className="relative overflow-hidden pt-24 md:pt-36">
       <div className="container-x">
         <div className="flex flex-col items-center gap-4 text-center" data-reveal>
           <LogoMark className="h-9 w-auto text-brass" />
@@ -27,40 +26,36 @@ export function Story() {
           {story.statement.after}
         </h2>
 
-        <div className="mt-16 grid gap-14 md:mt-24 md:grid-cols-12 md:gap-8">
-          <div className="relative md:col-span-6 lg:col-span-5">
-            <div className="arch relative aspect-[4/5] w-full" data-reveal="image">
-              <Image src={images.sharedTable.src} alt={images.sharedTable.alt} fill sizes="(min-width: 1024px) 40vw, (min-width: 768px) 50vw, 100vw" placeholder="blur" className="object-cover" />
+        <div className="mx-auto mt-12 max-w-2xl space-y-5 text-center text-lg leading-relaxed text-ink-soft md:mt-16">
+          {story.paragraphs.map((p, i) => (
+            <p key={i} data-reveal style={{ ["--reveal-delay" as string]: `${i * 120}ms` }}>
+              {p}
+            </p>
+          ))}
+        </div>
+        <dl className="mx-auto mt-14 grid max-w-4xl gap-8 border-t border-line pt-10 text-center sm:grid-cols-3">
+          {story.pillars.map((pillar, i) => (
+            <div key={pillar.title} data-reveal style={{ ["--reveal-delay" as string]: `${i * 120}ms` }}>
+              <dt className="font-script text-4xl">{pillar.title}</dt>
+              <dd className="mt-2 text-[0.9375rem] leading-relaxed text-ink-mute">{pillar.text}</dd>
             </div>
-            <div
-              className="absolute -bottom-10 right-0 w-[42%] border-[6px] border-ivory shadow-[0_30px_60px_-30px_rgb(31_26_22/0.5)] md:-right-10"
-              data-reveal="image"
-              style={{ ["--reveal-delay" as string]: "200ms" }}
-            >
-              <div className="relative aspect-[3/4]">
-                <Image src={images.doughHands.src} alt={images.doughHands.alt} fill sizes="(min-width: 768px) 20vw, 40vw" placeholder="blur" className="object-cover" />
-              </div>
-            </div>
-          </div>
+          ))}
+        </dl>
+      </div>
 
-          <div className="flex flex-col justify-end md:col-span-6 md:col-start-7 lg:col-span-5 lg:col-start-8">
-            <ArchOrnament className="mb-8 text-brass" data-reveal />
-            <div className="space-y-5 text-lg leading-relaxed text-ink-soft">
-              {story.paragraphs.map((p, i) => (
-                <p key={i} data-reveal style={{ ["--reveal-delay" as string]: `${i * 120}ms` }}>
-                  {p}
-                </p>
-              ))}
-            </div>
-            <dl className="mt-12 grid gap-6 border-t border-line pt-8 sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-3">
-              {story.pillars.map((pillar, i) => (
-                <div key={pillar.title} data-reveal style={{ ["--reveal-delay" as string]: `${i * 120}ms` }}>
-                  <dt className="font-script text-4xl">{pillar.title}</dt>
-                  <dd className="mt-2 text-[0.9375rem] leading-relaxed text-ink-mute">{pillar.text}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+      {/* Imagen fija del local: la página se desliza por encima (fondo fijo recortado con clip-path,
+          compatible también con móviles, donde background-attachment: fixed no funciona). */}
+      <div className="relative mt-20 h-[75svh] min-h-[26rem] [clip-path:inset(0)] md:mt-28" role="img" aria-label={images.archedEntry.alt}>
+        <div className="fixed inset-0">
+          <Image src={images.archedEntry.src} alt="" fill sizes="100vw" placeholder="blur" className="object-cover object-[50%_40%]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(31_26_22/0.35)_0%,rgb(31_26_22/0.1)_40%,rgb(31_26_22/0.8)_100%)]" />
+        </div>
+        <div className="on-dark relative flex h-full flex-col items-center justify-end pb-12 text-center text-linen">
+          <p className="eyebrow eyebrow-center">{story.space.eyebrow}</p>
+          <p className="font-script mt-3 text-[clamp(2.6rem,6vw,4.5rem)] leading-none">{story.space.title}</p>
+          <ProvisionalTag show={!siteConfig.contentStatus.photos} className="mt-5 text-linen/70">
+            Imagen ilustrativa
+          </ProvisionalTag>
         </div>
       </div>
     </section>

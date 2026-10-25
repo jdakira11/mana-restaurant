@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navigation, siteConfig } from "@/config/site";
+import { formatWhatsapp, navigation, siteConfig } from "@/config/site";
 import { Logo } from "@/components/ui/Logo";
 import { Pending } from "@/components/ui/Notice";
 import { CurrentYear } from "./CurrentYear";
@@ -40,6 +40,13 @@ export function Footer() {
               <li>{[c.address, c.city, c.region, c.country].filter(Boolean).join(", ") || <Pending label="Dirección pendiente" />}</li>
               <li>{c.phone ? <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="link-underline">{c.phone}</a> : <Pending label="Teléfono pendiente" />}</li>
               <li>{c.email ? <a href={`mailto:${c.email}`} className="link-underline">{c.email}</a> : <Pending label="Correo pendiente" />}</li>
+              {c.whatsapp && (
+                <li>
+                  <a href={`https://wa.me/${c.whatsapp}`} target="_blank" rel="noopener noreferrer" className="link-underline">
+                    WhatsApp {formatWhatsapp(c.whatsapp)}
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
           <div>

@@ -25,6 +25,7 @@ export const copy = {
       "Creemos que la cocina árabe se entiende mejor compartida. Por eso cada visita está pensada como una sucesión de pequeños descubrimientos que se reparten entre todos.",
       "Este espacio contará la historia real de Maná: quién está detrás, de dónde viene su cocina y qué hace especial su manera de recibir.",
     ],
+    space: { eyebrow: "Nuestro espacio", title: "Un lugar para quedarse" },
     pillars: [
       { title: "Compartir", text: "Platos al centro, para probar un poco de todo." },
       { title: "Hospitalidad", text: "Recibir a cada mesa como a un invitado." },
@@ -48,21 +49,6 @@ export const copy = {
     eyebrow: "La carta",
     title: "Para el centro de la mesa",
     intro: "Una carta organizada para compartir. Elige varios platos y deja que la mesa se llene.",
-  },
-
-  gallery: {
-    eyebrow: "Galería",
-    title: "Luz cálida, mesas llenas",
-    items: [
-      { image: "longTable", layout: "wide" },
-      { image: "pomegranate", layout: "tall" },
-      { image: "hummusBowl", layout: "tall" },
-      { image: "archedEntry", layout: "tall" },
-      { image: "dipsSpices", layout: "wide" },
-      { image: "pastry", layout: "tall" },
-      { image: "clayPot", layout: "tall" },
-      { image: "teaGlass", layout: "tall" },
-    ] satisfies { image: ImageKey; layout: "wide" | "tall" }[],
   },
 
   reservations: {

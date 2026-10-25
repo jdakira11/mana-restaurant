@@ -19,7 +19,7 @@ export function SectionHeader({
   as?: "h1" | "h2";
 }) {
   return (
-    <header className={`mx-auto flex max-w-3xl flex-col items-center text-center ${className}`}>
+    <header className={`mx-auto flex max-w-5xl flex-col items-center text-center ${className}`}>
       <LogoMark className="h-9 w-auto text-brass" data-reveal />
       <p className="eyebrow eyebrow-center mt-5" data-reveal>
         {eyebrow}

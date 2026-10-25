@@ -2,17 +2,11 @@ import type { StaticImageData } from "next/image";
 import archedEntry from "@/assets/images/arched-entry-lanterns.webp";
 import candlelitTable from "@/assets/images/candlelit-table.webp";
 import clayPot from "@/assets/images/clay-pot-stew.webp";
-import dipsSpices from "@/assets/images/dips-spices-board.webp";
 import doughHands from "@/assets/images/dough-hands.webp";
 import grillSkewers from "@/assets/images/grill-skewers.webp";
 import heroMezze from "@/assets/images/hero-mezze-slate.webp";
-import hummusBowl from "@/assets/images/hummus-patterned-bowl.webp";
-import longTable from "@/assets/images/long-table-candles.webp";
 import mezzePlates from "@/assets/images/mezze-patterned-plates.webp";
 import pistachioPastry from "@/assets/images/pistachio-pastry.webp";
-import pomegranate from "@/assets/images/pomegranate-dark.webp";
-import sharedTable from "@/assets/images/shared-table-wood.webp";
-import teaGlass from "@/assets/images/tea-pouring-glass.webp";
 import teaSilver from "@/assets/images/tea-pouring-silver.webp";
 import guestBreadTea from "@/assets/images/guest-bread-tea.webp";
 import guestMezzeTable from "@/assets/images/guest-mezze-table.webp";
@@ -20,6 +14,21 @@ import guestPlatterRice from "@/assets/images/guest-platter-rice.webp";
 import guestSoupMezze from "@/assets/images/guest-soup-mezze.webp";
 import guestTagineShare from "@/assets/images/guest-tagine-share.webp";
 import guestTeaDates from "@/assets/images/guest-tea-dates.webp";
+import dishHummus from "@/assets/images/dish-hummus.webp";
+import dishFalafel from "@/assets/images/dish-falafel.webp";
+import dishKibbeh from "@/assets/images/dish-kibbeh.webp";
+import dishMezze from "@/assets/images/dish-mezze.webp";
+import dishHousePlatter from "@/assets/images/dish-house-platter.webp";
+import dishGreenPlatter from "@/assets/images/dish-green-platter.webp";
+import dishKafta from "@/assets/images/dish-kafta.webp";
+import dishVineLeaves from "@/assets/images/dish-vine-leaves.webp";
+import dishTabbouleh from "@/assets/images/dish-tabbouleh.webp";
+import dishFattoush from "@/assets/images/dish-fattoush.webp";
+import dishPomegranateSalad from "@/assets/images/dish-pomegranate-salad.webp";
+import dishBaklava from "@/assets/images/dish-baklava.webp";
+import dishKataifiNest from "@/assets/images/dish-kataifi-nest.webp";
+import drinkCoffee from "@/assets/images/drink-coffee.webp";
+import drinkLemonade from "@/assets/images/drink-lemonade.webp";
 
 /**
  * Registro de imágenes. Todas proceden de Unsplash (licencia Unsplash: uso comercial gratuito,
@@ -52,16 +61,6 @@ export const images = {
     alt: "Vista cenital de platos de cerámica pintada con hummus, calabaza asada y cremas sobre una mesa de madera",
     credit: unsplash("Filipp Romanovski", "filipp_roman_photography", "OwhL1lhzOOI"),
   },
-  hummusBowl: {
-    src: hummusBowl,
-    alt: "Cuenco de hummus con garbanzos y aceite de oliva en cerámica de borde azul",
-    credit: unsplash("Filipp Romanovski", "filipp_roman_photography", "GdLWD8eWFhI"),
-  },
-  sharedTable: {
-    src: sharedTable,
-    alt: "Mesa de madera con panes, ensaladas y varios platos dispuestos para compartir",
-    credit: unsplash("Charles-Albert Clarysse", "charlesalb", "-5B_sfWV2TE"),
-  },
   doughHands: {
     src: doughHands,
     alt: "Manos enharinadas extendiendo una masa sobre la mesa de trabajo",
@@ -87,35 +86,15 @@ export const images = {
     alt: "Té servido desde una tetera plateada en vasos de cristal",
     credit: unsplash("Louis Hansel", "louishansel", "hB4oeoLKMBc"),
   },
-  teaGlass: {
-    src: teaGlass,
-    alt: "Infusión vertida en una jarra de cristal en penumbra",
-    credit: unsplash("Anna Volkova", "annivol", "eVeMvEa2gmc"),
-  },
-  pomegranate: {
-    src: pomegranate,
-    alt: "Granada abierta con sus granos sobre fondo negro",
-    credit: unsplash("Margarita Zueva", "margzu", "Ws4axEMbsvY"),
-  },
   candlelitTable: {
     src: candlelitTable,
     alt: "Mesa alargada con velas, flores y platos bajo una luz cálida",
     credit: unsplash("Mounish Raja", "mounishraja", "PyL-lApI1F8"),
   },
-  longTable: {
-    src: longTable,
-    alt: "Mesa larga preparada con platos blancos, velas y botellas de cristal",
-    credit: unsplash("Nadia Valko", "nadiavalko", "0hAdietsUrE"),
-  },
   archedEntry: {
     src: archedEntry,
     alt: "Arco de entrada en penumbra con una gran lámpara de faroles encendida",
     credit: unsplash("İrfan Simsar", "irfansimsar", "epv5Xvjtnqg"),
-  },
-  dipsSpices: {
-    src: dipsSpices,
-    alt: "Tabla de madera con pan, cremas, encurtidos y especias en pequeños cuencos",
-    credit: unsplash("Chetanya Sharma", "chetanya_designs", "zyeyksoJf78"),
   },
   // Fotos de la galería de opiniones: personas compartiendo mesa, sin caras reconocibles
   // (las opiniones son ilustrativas y no deben atribuirse a personas reales identificables).
@@ -148,6 +127,82 @@ export const images = {
     src: guestBreadTea,
     alt: "Manos compartiendo pan horneado y té en vaso de cristal",
     credit: unsplash("Yasin Onus", "yasinonus", "ge7FkL5jPl4"),
+  },
+  // Platos de la carta.
+  dishHummus: {
+    src: dishHummus,
+    alt: "Fuente de hummus decorada con aceite de oliva y una rosa de tomate",
+    credit: unsplash("Chez Le Libanais", "chezlelibanais", "GfjSm9IvI3Q"),
+  },
+  dishFalafel: {
+    src: dishFalafel,
+    alt: "Cuenco de falafel con nabo encurtido junto a encurtidos y especias",
+    credit: unsplash("Chez Le Libanais", "chezlelibanais", "9oepWGu1bSQ"),
+  },
+  dishKibbeh: {
+    src: dishKibbeh,
+    alt: "Kibbeh frito sobre lechuga con tomate y limón",
+    credit: unsplash("Chez Le Libanais", "chezlelibanais", "Go_BsrnVId4"),
+  },
+  dishMezze: {
+    src: dishMezze,
+    alt: "Plato de mezze con hummus, labneh, tabulé, falafel, kibbeh y empanadillas",
+    credit: unsplash("Chez Le Libanais", "chezlelibanais", "_Y7_OVpMxsI"),
+  },
+  dishHousePlatter: {
+    src: dishHousePlatter,
+    alt: "Bandeja con hummus, tabulé, falafel, carnes a la parrilla y pan pita",
+    credit: unsplash("Chez Le Libanais", "chezlelibanais", "dcgMs7GEj2M"),
+  },
+  dishGreenPlatter: {
+    src: dishGreenPlatter,
+    alt: "Bandeja de falafel, hummus, tabulé y pan pita sobre una mesa de madera",
+    credit: unsplash("Chez Le Libanais", "chezlelibanais", "XYELC0jO8_U"),
+  },
+  dishKafta: {
+    src: dishKafta,
+    alt: "Brochetas de kafta con granada y hierbas en un plato azul",
+    credit: unsplash("Sara Dubler", "ahungryblonde_", "lOaXEG1tVUM"),
+  },
+  dishVineLeaves: {
+    src: dishVineLeaves,
+    alt: "Hojas de parra rellenas sobre lechuga con limón y granada",
+    credit: unsplash("Chez Le Libanais", "chezlelibanais", "uAvDWzrEzq8"),
+  },
+  dishTabbouleh: {
+    src: dishTabbouleh,
+    alt: "Cuenco de tabulé con tomate picado, perejil y limón",
+    credit: unsplash("Chez Le Libanais", "chezlelibanais", "m5YZbsHYeWk"),
+  },
+  dishFattoush: {
+    src: dishFattoush,
+    alt: "Ensalada de hortalizas y hierbas frescas con limón",
+    credit: unsplash("Chez Le Libanais", "chezlelibanais", "r1ojWpwr4Uc"),
+  },
+  dishPomegranateSalad: {
+    src: dishPomegranateSalad,
+    alt: "Ensalada de tomate, hierbas y granada decorada con rosas de tomate",
+    credit: unsplash("Chez Le Libanais", "chezlelibanais", "SApwArn0jeU"),
+  },
+  dishBaklava: {
+    src: dishBaklava,
+    alt: "Baklava dorado relleno de pistacho picado",
+    credit: unsplash("Benjamin Chambon", "benjamin_photo_lab", "OEDeQheVySQ"),
+  },
+  dishKataifiNest: {
+    src: dishKataifiNest,
+    alt: "Nido de masa kataifi relleno de pistachos",
+    credit: unsplash("Shoeib Abolhassani", "shoeibabhn", "NzNFM69MMnI"),
+  },
+  drinkCoffee: {
+    src: drinkCoffee,
+    alt: "Taza de café sobre un platillo de cerámica decorada",
+    credit: unsplash("Ebru Doğan", "ebrubodyy", "dgmaFq0dorU"),
+  },
+  drinkLemonade: {
+    src: drinkLemonade,
+    alt: "Vaso de limonada con hielo, lima y menta",
+    credit: unsplash("kimia kazemi", "kimick", "aM3LR10BeAc"),
   },
 } satisfies Record<string, SiteImage>;
 

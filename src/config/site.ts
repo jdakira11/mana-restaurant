@@ -81,14 +81,16 @@ export const siteConfig: SiteConfig = {
     postalCode: null,
     country: "Chile",
     phone: null,
-    whatsapp: null,
-    email: null,
+    whatsapp: "56912345678",
+    email: "contacto@manamuestra.com",
     // Mapa de la comuna (no de una dirección concreta).
     mapEmbedUrl: "https://www.google.com/maps?q=Las+Condes,+Regi%C3%B3n+Metropolitana,+Chile&z=13&output=embed",
     mapLink: "https://www.google.com/maps/search/?api=1&query=Las+Condes%2C+Regi%C3%B3n+Metropolitana%2C+Chile",
   },
   social: {
-    // instagram: "https://www.instagram.com/…",
+    // Sustituye por los perfiles reales del restaurante.
+    instagram: "https://www.instagram.com/",
+    tiktok: "https://www.tiktok.com/",
   },
   reviewUrl: null,
   menuPdfUrl: null,
@@ -120,3 +122,9 @@ export const navigation = [
   { href: "/#reservas", label: "Reservas" },
   { href: "/#contacto", label: "Contacto" },
 ] as const;
+
+/** Número de WhatsApp legible, p. ej. "56912345678" → "+56 9 1234 5678". */
+export function formatWhatsapp(digits: string): string {
+  const m = digits.match(/^56(9)(\d{4})(\d{4})$/);
+  return m ? `+56 ${m[1]} ${m[2]} ${m[3]}` : `+${digits}`;
+}

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { siteConfig } from "@/config/site";
+import { formatWhatsapp, siteConfig } from "@/config/site";
 import { copy } from "@/content/copy";
 import { images } from "@/content/images";
 import { Chat, Clock, Mail, Phone, Pin } from "@/components/ui/icons";
@@ -44,7 +44,7 @@ export function Location() {
       label: "WhatsApp",
       value: c.whatsapp ? (
         <a href={`https://wa.me/${c.whatsapp}`} target="_blank" rel="noopener noreferrer" className="link-underline">
-          Escríbenos
+          {formatWhatsapp(c.whatsapp)}
         </a>
       ) : (
         <Pending />

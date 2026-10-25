@@ -1,5 +1,4 @@
 import { Experience } from "@/components/site/Experience";
-import { Gallery } from "@/components/site/Gallery";
 import { Hero } from "@/components/site/Hero";
 import { Location } from "@/components/site/Location";
 import { MenuSection } from "@/components/site/MenuSection";
@@ -22,7 +21,6 @@ export default function HomePage() {
       <Story />
       <Experience />
       <MenuSection />
-      <Gallery />
       <ReservationsSection />
       <Testimonials />
       <Location />

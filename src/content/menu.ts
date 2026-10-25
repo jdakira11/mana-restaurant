@@ -3,13 +3,9 @@ import type { ImageKey } from "./images";
 /**
  * CARTA DE MANÁ — estructura de datos editable sin tocar los componentes.
  *
- * ⚠️ ESTADO ACTUAL: DEMOSTRACIÓN. Los platos de abajo son ejemplos genéricos de cocina árabe
- * para mostrar el diseño. NO forman parte de la carta oficial y no tienen precio.
- * Cuando el restaurante facilite su carta:
- *   1. Cambia `status` a "official".
- *   2. Sustituye categorías y platos (quita `demo: true`).
- *   3. Indica `price` como número (p. ej. 145) en la moneda de `siteConfig.currency`.
- *   4. Añade `allergens` solo si la información está verificada por la cocina.
+ * Maná es un restaurante ficticio (proyecto de portafolio): platos, descripciones y precios
+ * son de muestra. Precios en la moneda de `siteConfig.currency` (USD).
+ * Fotos: Unsplash (ver content/images.ts y /creditos). Añade `allergens` solo con información verificada.
  */
 
 export type Allergen =
@@ -73,86 +69,84 @@ export interface Menu {
   categories: MenuCategory[];
 }
 
-const demo = (id: string, name: string, description: string, tags?: DietaryTag[]): MenuItem => ({
+const item = (id: string, name: string, description: string, price: number, image: ImageKey, tags?: DietaryTag[]): MenuItem => ({
   id,
   name,
   description,
-  price: null,
+  price,
+  image,
   tags,
-  demo: true,
 });
 
 export const menu: Menu = {
-  status: "demo",
+  status: "official",
   categories: [
     {
       id: "entradas",
       name: "Entradas y aperitivos",
       description: "Pequeños platos para abrir la mesa.",
-      image: "dipsSpices",
       items: [
-        demo("hummus", "Hummus", "Ejemplo de plato. Descripción pendiente de la carta oficial.", ["vegetariano"]),
-        demo("mutabal", "Mutabal", "Ejemplo de plato. Descripción pendiente de la carta oficial.", ["vegetariano"]),
-        demo("falafel", "Falafel", "Ejemplo de plato. Descripción pendiente de la carta oficial.", ["vegetariano"]),
-        demo("fatayer", "Fatayer", "Ejemplo de plato. Descripción pendiente de la carta oficial."),
+        item("hummus", "Hummus", "Crema de garbanzos con tahini, limón y aceite de oliva, con pan pita caliente.", 8, "dishHummus", ["vegetariano"]),
+        item("falafel", "Falafel", "Croquetas crujientes de garbanzo y hierbas con nabo encurtido y salsa de tahini.", 9, "dishFalafel", ["vegetariano"]),
+        item("kibbeh", "Kibbeh", "Bulgur relleno de carne especiada y piñones, servido con limón y tomate.", 10, "dishKibbeh"),
       ],
     },
     {
       id: "compartir",
       name: "Platos para compartir",
       description: "Pensados para el centro de la mesa.",
-      image: "mezzePlates",
       items: [
-        demo("mezze", "Selección de mezze", "Ejemplo de plato. Descripción pendiente de la carta oficial.", ["para-compartir"]),
-        demo("tabule", "Tabulé", "Ejemplo de plato. Descripción pendiente de la carta oficial.", ["vegetariano"]),
-        demo("fattoush", "Fattoush", "Ejemplo de plato. Descripción pendiente de la carta oficial.", ["vegetariano"]),
+        item("mezze", "Mezze Maná", "Hummus, labneh, tabulé, falafel, kibbeh y empanadillas: un poco de todo para descubrir.", 24, "dishMezze", ["para-compartir"]),
+        item("bandeja-casa", "Bandeja de la casa", "Hummus, tabulé, falafel y carnes a la parrilla con pan pita recién horneado.", 32, "dishHousePlatter", ["para-compartir"]),
+        item("bandeja-verde", "Bandeja verde", "Falafel, hummus, tabulé y encurtidos con pan pita.", 22, "dishGreenPlatter", ["para-compartir", "vegetariano"]),
       ],
     },
     {
       id: "principales",
       name: "Platos principales",
-      image: "grill",
+      description: "Del fuego a la mesa.",
       items: [
-        demo("parrilla", "Parrillada mixta", "Ejemplo de plato. Descripción pendiente de la carta oficial.", ["para-compartir"]),
-        demo("kafta", "Kafta", "Ejemplo de plato. Descripción pendiente de la carta oficial."),
-        demo("shawarma", "Shawarma al plato", "Ejemplo de plato. Descripción pendiente de la carta oficial."),
+        item("parrillada", "Parrillada mixta", "Brochetas de pollo, kafta y cordero con verduras asadas, salsas y pan.", 28, "grill", ["para-compartir"]),
+        item("kafta", "Kafta a la parrilla", "Brochetas de carne picada con perejil y especias, granada y menta fresca.", 18, "dishKafta"),
       ],
     },
     {
       id: "especialidades",
       name: "Especialidades árabes",
-      image: "clayPot",
+      description: "Recetas de cocción lenta y tradición.",
       items: [
-        demo("kibbeh", "Kibbeh", "Ejemplo de plato. Descripción pendiente de la carta oficial."),
-        demo("maqluba", "Maqluba", "Ejemplo de plato. Descripción pendiente de la carta oficial.", ["para-compartir"]),
+        item("cazuela", "Cazuela de cordero", "Cordero cocinado lentamente con tomate, pimientos y especias, en cazuela de barro.", 22, "clayPot"),
+        item("warak-enab", "Hojas de parra", "Hojas de parra rellenas de arroz, tomate y hierbas, con limón y granada.", 12, "dishVineLeaves", ["vegetariano"]),
       ],
     },
     {
       id: "vegetarianas",
       name: "Opciones vegetarianas",
-      image: "hummusBowl",
+      description: "Frescas, coloridas y llenas de hierbas.",
       items: [
-        demo("mujaddara", "Mujaddara", "Ejemplo de plato. Descripción pendiente de la carta oficial.", ["vegetariano"]),
-        demo("musaqa", "Berenjena al horno", "Ejemplo de plato. Descripción pendiente de la carta oficial.", ["vegetariano"]),
+        item("tabule", "Tabulé", "Perejil, bulgur, tomate y menta con limón y aceite de oliva.", 9, "dishTabbouleh", ["vegano"]),
+        item("fattoush", "Fattoush", "Hortalizas crujientes, hierbas frescas y pan tostado con zumaque.", 10, "dishFattoush", ["vegano"]),
+        item("ensalada-granada", "Ensalada de granada", "Tomate, hierbas frescas y granada con vinagreta de limón.", 10, "dishPomegranateSalad", ["vegano"]),
       ],
     },
     {
       id: "postres",
       name: "Postres",
-      image: "pastry",
+      description: "Algo dulce para la sobremesa.",
       items: [
-        demo("baklava", "Baklava", "Ejemplo de plato. Descripción pendiente de la carta oficial."),
-        demo("knafeh", "Knafeh", "Ejemplo de plato. Descripción pendiente de la carta oficial."),
+        item("baklava", "Baklava de pistacho", "Capas de masa filo, pistacho y almíbar de azahar.", 7, "dishBaklava", ["vegetariano"]),
+        item("nido-kataifi", "Nido de kataifi", "Masa kataifi crujiente con pistachos enteros y miel.", 8, "dishKataifiNest", ["vegetariano"]),
+        item("conos-kataifi", "Conos de kataifi", "Conos de masa kataifi rellenos de pistacho molido.", 7, "pastry", ["vegetariano"]),
       ],
     },
     {
       id: "bebidas",
       name: "Bebidas",
-      image: "teaSilver",
+      description: "Para acompañar la mesa y la sobremesa.",
       items: [
-        demo("te", "Té", "Ejemplo de bebida. Descripción pendiente de la carta oficial."),
-        demo("cafe", "Café", "Ejemplo de bebida. Descripción pendiente de la carta oficial."),
-        demo("limonada", "Limonada", "Ejemplo de bebida. Descripción pendiente de la carta oficial."),
+        item("te-menta", "Té de menta", "Té verde con menta fresca, servido a la manera tradicional.", 4, "teaSilver", ["vegano"]),
+        item("cafe-arabe", "Café árabe", "Café de molienda fina aromatizado con cardamomo.", 4, "drinkCoffee", ["vegano"]),
+        item("limonada", "Limonada con menta", "Limón exprimido, menta fresca y hielo.", 5, "drinkLemonade", ["vegano"]),
       ],
     },
   ],
