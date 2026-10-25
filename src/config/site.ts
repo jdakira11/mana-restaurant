@@ -72,7 +72,7 @@ export const siteConfig: SiteConfig = {
   description:
     "Maná, restaurante de cocina árabe. Una mesa pensada para compartir, descubrir sabores y disfrutar de la hospitalidad. Reserva tu mesa online.",
   locale: "es-CL",
-  currency: "USD", // Precios de la carta en dólares estadounidenses.
+  currency: "CLP", // Precios de la carta en pesos chilenos.
   url: "http://localhost:3000",
   contact: {
     address: null, // Restaurante ficticio (proyecto de portafolio): sin dirección exacta.

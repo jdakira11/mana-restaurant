@@ -2,7 +2,7 @@
 
 Web del restaurante de cocina árabe **Maná**: experiencia editorial y sistema de reservas real, con persistencia, control de capacidad, panel de administración y avisos por correo.
 
-> **Proyecto de portafolio:** Maná es un restaurante ficticio ubicado en Las Condes (Región Metropolitana, Chile), sin dirección exacta. Los precios de la carta se expresan en dólares estadounidenses (USD).
+> **Proyecto de portafolio:** Maná es un restaurante ficticio ubicado en Las Condes (Región Metropolitana, Chile), sin dirección exacta. Los precios de la carta se expresan en pesos chilenos (CLP).
 
 > **Estado:** funcional y probado en local. Faltan los **datos reales del restaurante** (ver «[Lo que debe aportar el propietario](#lo-que-debe-aportar-el-propietario)») y la **configuración de los servicios externos** de producción (base de datos, correo y hosting).
 
@@ -285,7 +285,7 @@ Durante las pruebas se detectaron y corrigieron, entre otros: el borrado de la c
 - [ ] Mínimo y máximo de personas por reserva online y política para grupos grandes
 - [ ] Antelación mínima y hasta cuántos días se puede reservar
 - [ ] Confirmación **automática o manual**
-- [x] Ubicación general: **Las Condes, Región Metropolitana, Chile** (sin dirección exacta), zona horaria `America/Santiago`, precios en **USD**
+- [x] Ubicación general: **Las Condes, Región Metropolitana, Chile** (sin dirección exacta), zona horaria `America/Santiago`, precios en **CLP**
 - [ ] Razón social, identificación fiscal y domicilio (aviso legal), y revisión legal de la **política de privacidad**
 - [ ] Plazo de conservación de los datos de reservas
 - [ ] Dominio definitivo

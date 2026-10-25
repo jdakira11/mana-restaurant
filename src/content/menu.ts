@@ -4,7 +4,7 @@ import type { ImageKey } from "./images";
  * CARTA DE MANÁ — estructura de datos editable sin tocar los componentes.
  *
  * Maná es un restaurante ficticio (proyecto de portafolio): platos, descripciones y precios
- * son de muestra. Precios en la moneda de `siteConfig.currency` (USD).
+ * son de muestra. Precios en la moneda de `siteConfig.currency` (pesos chilenos, CLP).
  * Fotos: Unsplash (ver content/images.ts y /creditos). Añade `allergens` solo con información verificada.
  */
 
@@ -86,9 +86,9 @@ export const menu: Menu = {
       name: "Entradas y aperitivos",
       description: "Pequeños platos para abrir la mesa.",
       items: [
-        item("hummus", "Hummus", "Crema de garbanzos con tahini, limón y aceite de oliva, con pan pita caliente.", 8, "dishHummus", ["vegetariano"]),
-        item("falafel", "Falafel", "Croquetas crujientes de garbanzo y hierbas con nabo encurtido y salsa de tahini.", 9, "dishFalafel", ["vegetariano"]),
-        item("kibbeh", "Kibbeh", "Bulgur relleno de carne especiada y piñones, servido con limón y tomate.", 10, "dishKibbeh"),
+        item("hummus", "Hummus", "Crema de garbanzos con tahini, limón y aceite de oliva, con pan pita caliente.", 7900, "dishHummus", ["vegetariano"]),
+        item("falafel", "Falafel", "Croquetas crujientes de garbanzo y hierbas con nabo encurtido y salsa de tahini.", 8900, "dishFalafel", ["vegetariano"]),
+        item("kibbeh", "Kibbeh", "Bulgur relleno de carne especiada y piñones, servido con limón y tomate.", 9500, "dishKibbeh"),
       ],
     },
     {
@@ -96,9 +96,9 @@ export const menu: Menu = {
       name: "Platos para compartir",
       description: "Pensados para el centro de la mesa.",
       items: [
-        item("mezze", "Mezze Maná", "Hummus, labneh, tabulé, falafel, kibbeh y empanadillas: un poco de todo para descubrir.", 24, "dishMezze", ["para-compartir"]),
-        item("bandeja-casa", "Bandeja de la casa", "Hummus, tabulé, falafel y carnes a la parrilla con pan pita recién horneado.", 32, "dishHousePlatter", ["para-compartir"]),
-        item("bandeja-verde", "Bandeja verde", "Falafel, hummus, tabulé y encurtidos con pan pita.", 22, "dishGreenPlatter", ["para-compartir", "vegetariano"]),
+        item("mezze", "Mezze Maná", "Hummus, labneh, tabulé, falafel, kibbeh y empanadillas: un poco de todo para descubrir.", 22900, "dishMezze", ["para-compartir"]),
+        item("bandeja-casa", "Bandeja de la casa", "Hummus, tabulé, falafel y carnes a la parrilla con pan pita recién horneado.", 29900, "dishHousePlatter", ["para-compartir"]),
+        item("bandeja-verde", "Bandeja verde", "Falafel, hummus, tabulé y encurtidos con pan pita.", 19900, "dishGreenPlatter", ["para-compartir", "vegetariano"]),
       ],
     },
     {
@@ -106,8 +106,8 @@ export const menu: Menu = {
       name: "Platos principales",
       description: "Del fuego a la mesa.",
       items: [
-        item("parrillada", "Parrillada mixta", "Brochetas de pollo, kafta y cordero con verduras asadas, salsas y pan.", 28, "grill", ["para-compartir"]),
-        item("kafta", "Kafta a la parrilla", "Brochetas de carne picada con perejil y especias, granada y menta fresca.", 18, "dishKafta"),
+        item("parrillada", "Parrillada mixta", "Brochetas de pollo, kafta y cordero con verduras asadas, salsas y pan.", 26900, "grill", ["para-compartir"]),
+        item("kafta", "Kafta a la parrilla", "Brochetas de carne picada con perejil y especias, granada y menta fresca.", 16900, "dishKafta"),
       ],
     },
     {
@@ -115,8 +115,8 @@ export const menu: Menu = {
       name: "Especialidades árabes",
       description: "Recetas de cocción lenta y tradición.",
       items: [
-        item("cazuela", "Cazuela de cordero", "Cordero cocinado lentamente con tomate, pimientos y especias, en cazuela de barro.", 22, "clayPot"),
-        item("warak-enab", "Hojas de parra", "Hojas de parra rellenas de arroz, tomate y hierbas, con limón y granada.", 12, "dishVineLeaves", ["vegetariano"]),
+        item("cazuela", "Cazuela de cordero", "Cordero cocinado lentamente con tomate, pimientos y especias, en cazuela de barro.", 19900, "clayPot"),
+        item("warak-enab", "Hojas de parra", "Hojas de parra rellenas de arroz, tomate y hierbas, con limón y granada.", 10900, "dishVineLeaves", ["vegetariano"]),
       ],
     },
     {
@@ -124,9 +124,9 @@ export const menu: Menu = {
       name: "Opciones vegetarianas",
       description: "Frescas, coloridas y llenas de hierbas.",
       items: [
-        item("tabule", "Tabulé", "Perejil, bulgur, tomate y menta con limón y aceite de oliva.", 9, "dishTabbouleh", ["vegano"]),
-        item("fattoush", "Fattoush", "Hortalizas crujientes, hierbas frescas y pan tostado con zumaque.", 10, "dishFattoush", ["vegano"]),
-        item("ensalada-granada", "Ensalada de granada", "Tomate, hierbas frescas y granada con vinagreta de limón.", 10, "dishPomegranateSalad", ["vegano"]),
+        item("tabule", "Tabulé", "Perejil, bulgur, tomate y menta con limón y aceite de oliva.", 8500, "dishTabbouleh", ["vegano"]),
+        item("fattoush", "Fattoush", "Hortalizas crujientes, hierbas frescas y pan tostado con zumaque.", 8900, "dishFattoush", ["vegano"]),
+        item("ensalada-granada", "Ensalada de granada", "Tomate, hierbas frescas y granada con vinagreta de limón.", 8900, "dishPomegranateSalad", ["vegano"]),
       ],
     },
     {
@@ -134,9 +134,9 @@ export const menu: Menu = {
       name: "Postres",
       description: "Algo dulce para la sobremesa.",
       items: [
-        item("baklava", "Baklava de pistacho", "Capas de masa filo, pistacho y almíbar de azahar.", 7, "dishBaklava", ["vegetariano"]),
-        item("nido-kataifi", "Nido de kataifi", "Masa kataifi crujiente con pistachos enteros y miel.", 8, "dishKataifiNest", ["vegetariano"]),
-        item("conos-kataifi", "Conos de kataifi", "Conos de masa kataifi rellenos de pistacho molido.", 7, "pastry", ["vegetariano"]),
+        item("baklava", "Baklava de pistacho", "Capas de masa filo, pistacho y almíbar de azahar.", 5900, "dishBaklava", ["vegetariano"]),
+        item("nido-kataifi", "Nido de kataifi", "Masa kataifi crujiente con pistachos enteros y miel.", 6500, "dishKataifiNest", ["vegetariano"]),
+        item("conos-kataifi", "Conos de kataifi", "Conos de masa kataifi rellenos de pistacho molido.", 5900, "pastry", ["vegetariano"]),
       ],
     },
     {
@@ -144,9 +144,9 @@ export const menu: Menu = {
       name: "Bebidas",
       description: "Para acompañar la mesa y la sobremesa.",
       items: [
-        item("te-menta", "Té de menta", "Té verde con menta fresca, servido a la manera tradicional.", 4, "teaSilver", ["vegano"]),
-        item("cafe-arabe", "Café árabe", "Café de molienda fina aromatizado con cardamomo.", 4, "drinkCoffee", ["vegano"]),
-        item("limonada", "Limonada con menta", "Limón exprimido, menta fresca y hielo.", 5, "drinkLemonade", ["vegano"]),
+        item("te-menta", "Té de menta", "Té verde con menta fresca, servido a la manera tradicional.", 3500, "teaSilver", ["vegano"]),
+        item("cafe-arabe", "Café árabe", "Café de molienda fina aromatizado con cardamomo.", 3500, "drinkCoffee", ["vegano"]),
+        item("limonada", "Limonada con menta", "Limón exprimido, menta fresca y hielo.", 4500, "drinkLemonade", ["vegano"]),
       ],
     },
   ],

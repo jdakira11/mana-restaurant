@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { siteConfig } from "@/config/site";
 import { copy } from "@/content/copy";
 import { images } from "@/content/images";
 import { ALLERGEN_LABELS, menu, type DietaryTag } from "@/content/menu";
+import { MenuCarousel } from "./MenuCarousel";
 import { SectionHeader } from "./SectionHeader";
 
 const TAG_LABELS: Record<DietaryTag, string> = {
@@ -108,51 +108,20 @@ export function MenuSection() {
           >
             <h3 className="font-script text-center text-5xl md:text-6xl">{category.name}</h3>
             {category.description && <p className="mt-2 text-center text-ink-mute">{category.description}</p>}
-            <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {category.items.map((item) => {
-                const photo = item.image ? images[item.image] : null;
-                return (
-                  <li key={item.id}>
-                    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-linen shadow-[0_24px_50px_-40px_rgb(31_26_22/0.55)]">
-                      {photo && (
-                        <div className="relative aspect-[4/3] overflow-hidden">
-                          <Image
-                            src={photo.src}
-                            alt={photo.alt}
-                            fill
-                            sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                            placeholder="blur"
-                            className="object-cover transition-transform duration-[1.2s] ease-[var(--ease-out-soft)] group-hover:scale-[1.05]"
-                          />
-                        </div>
-                      )}
-                      <div className="flex flex-1 flex-col p-6 text-center">
-                        <h4 className="font-script text-[2.2rem] leading-tight">{item.name}</h4>
-                        {item.description && <p className="mt-2 flex-1 text-[0.9375rem] leading-relaxed text-ink-mute">{item.description}</p>}
-                        {(item.tags?.length || item.allergens?.length) ? (
-                          <ul className="mt-4 flex flex-wrap justify-center gap-2" aria-label="Características">
-                            {item.tags?.map((t) => (
-                              <li key={t} className="rounded-full border border-olive/30 px-2.5 py-0.5 text-xs text-olive">
-                                {TAG_LABELS[t]}
-                              </li>
-                            ))}
-                            {item.allergens?.map((a) => (
-                              <li key={a} className="rounded-full border border-ink/20 px-2.5 py-0.5 text-xs text-ink-mute">
-                                {ALLERGEN_LABELS[a]}
-                              </li>
-                            ))}
-                          </ul>
-                        ) : null}
-                        <p className="mt-5 border-t border-ink/10 pt-4 text-lg font-semibold tabular-nums text-terracotta">
-                          {item.price !== null ? priceFormat.format(item.price) : <span className="text-sm font-normal italic text-ink-mute">Precio por confirmar</span>}
-                        </p>
-                      </div>
-                    </article>
-                  </li>
-                );
-              })}
-            </ul>
-            <p className="mt-8 text-center text-sm text-ink-mute">
+            <div className="mt-8">
+              <MenuCarousel
+                label={category.name}
+                items={category.items.map((item) => ({
+                  id: item.id,
+                  name: item.name,
+                  description: item.description,
+                  photo: item.image ? images[item.image] : null,
+                  tags: [...(item.tags ?? []).map((t) => TAG_LABELS[t]), ...(item.allergens ?? []).map((a) => ALLERGEN_LABELS[a])],
+                  priceLabel: item.price !== null ? priceFormat.format(item.price) : <span className="text-sm font-normal italic text-ink-mute">Precio por confirmar</span>,
+                }))}
+              />
+            </div>
+            <p className="mt-6 text-center text-sm text-ink-mute">
               ¿Alergias o intolerancias? Indícalo en los comentarios de tu reserva o pregunta a nuestro equipo.
             </p>
           </div>
