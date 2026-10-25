@@ -39,7 +39,7 @@ Web del restaurante de cocina árabe **Maná**: experiencia editorial y sistema 
 | Correo | **Resend** (API REST, sin SDK) | Sencillo; si no está configurado, no se simula |
 | Anti-bots | Honeypot + tiempo mínimo + límite de peticiones · **Turnstile** opcional | Sin captchas molestos por defecto |
 | Animaciones | CSS + IntersectionObserver (sin librerías) | Cero JS extra; respeta `prefers-reduced-motion` |
-| Fuentes | Fraunces (titulares) + Instrument Sans (texto), vía `next/font` | Autoalojadas, sin peticiones a Google en tiempo de ejecución |
+| Fuentes | Great Vibes (títulos caligráficos) + Instrument Sans (resto del texto), vía `next/font` | Solo dos familias; autoalojadas, sin peticiones a Google en tiempo de ejecución |
 | Pruebas | Vitest | Lógica de disponibilidad y servicio de reservas contra PostgreSQL real (PGlite) |
 
 Se descartó Framer Motion: las animaciones necesarias (aparición de secciones, hero, menú móvil, galería) se resuelven con CSS (`transform` y `opacity`) sin añadir peso.

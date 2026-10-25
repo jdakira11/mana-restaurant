@@ -1,15 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Great_Vibes, Instrument_Sans } from "next/font/google";
+import { Great_Vibes, Instrument_Sans } from "next/font/google";
 import { getSiteUrl, siteConfig } from "@/config/site";
 import "./globals.css";
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  axes: ["SOFT"],
-  display: "swap",
-});
 
 // Caligrafía para títulos (Google Fonts, licencia OFL: libre para uso comercial).
 const greatVibes = Great_Vibes({
@@ -54,7 +46,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang={siteConfig.locale} className={`${fraunces.variable} ${greatVibes.variable} ${instrument.variable}`}>
+    <html lang={siteConfig.locale} className={`${greatVibes.variable} ${instrument.variable}`}>
       <body className="min-h-dvh">{children}</body>
     </html>
   );

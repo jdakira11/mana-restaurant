@@ -21,7 +21,8 @@
   --color-danger: #9b2c1f;
   --color-success: #3f5a2e;
 
-  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  /* Solo dos familias en toda la web: Instrument Sans (texto y titulares no caligráficos) y Great Vibes. */
+  --font-display: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
   --font-script: var(--font-greatvibes), "Snell Roundhand", "Segoe Script", cursive;
 
@@ -61,9 +62,8 @@
   h3 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.015em;
-    line-height: 1.05;
-    font-variation-settings: "SOFT" 50;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
   }
   img {
     -webkit-user-drag: none;
