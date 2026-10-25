@@ -1,0 +1,4 @@
+:HL["/mana-restaurant/_next/static/chunks/39z1dirh7-oq3.css","style"]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
+0:{"b":"6Q5lDXRe26o6Tx1K_3oA0","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

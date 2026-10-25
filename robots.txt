@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jdakira11.github.io/mana-restaurant/sitemap.xml

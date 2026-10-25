@@ -1,0 +1,7 @@
+:HL["/mana-restaurant/_next/static/chunks/39z1dirh7-oq3.css","style"]
+:HL["/mana-restaurant/_next/static/media/42b34334b62e1e5a-s.p.3rqg0w444aekk.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/mana-restaurant/_next/static/media/4cf231d25563e07b-s.p.2874ccu1_u7jf.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":"creditos","h":64,"c":"$Q3"}]]
+1:[["children",{"s":"(site)","h":32,"c":"$Q2"}]]
+0:{"b":"6Q5lDXRe26o6Tx1K_3oA0","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
